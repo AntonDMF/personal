@@ -171,3 +171,13 @@ h1{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* SFONDO SOLO EVENTO 1 */
+body.event-dan{
+  background:
+    linear-gradient(rgba(245,246,248,.88), rgba(245,246,248,.88)),
+    url("/assets/modif.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
