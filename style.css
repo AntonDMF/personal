@@ -118,3 +118,56 @@ h1{
   .cta-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
   .cta-button{ display: inline-block; width: auto; }
 }
+/* HOME LAYOUT */
+.home{
+  display: grid;
+  gap: 18px;
+  justify-items: center;   /* centra tutto */
+}
+
+.title{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.prose{
+  width: min(720px, 100%);
+  padding: 18px;
+  text-align: left;        /* leggibilità migliore */
+}
+
+.prose p{
+  margin: 0 0 12px 0;
+  line-height: 1.55;
+}
+
+.actions{
+  width: min(820px, 100%);
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+.action-card{
+  padding: 18px;
+  text-decoration: none;
+  color: inherit;
+  text-align: left;
+}
+
+.action-card h2{
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+}
+
+.action-card p{
+  margin: 0;
+  color: var(--muted);
+}
+
+/* desktop: cards affiancate e allineate */
+@media (min-width: 860px){
+  .actions{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
