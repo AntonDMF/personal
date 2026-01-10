@@ -1,12 +1,13 @@
 :root{
-  --bg: #f5f6f8;
-  --text: #101114;
-  --muted: rgba(16,17,20,.65);
+  --bg: #eef0f3;                  /* grigio caldo, non bianco */
+  --text: #111214;
+  --muted: rgba(17,18,20,.65);
 
-  /* card grigio trasparente */
-  --card: rgba(120, 120, 130, 0.14);
-  --card-border: rgba(16,17,20,.10);
-  --shadow: 0 10px 30px rgba(0,0,0,.08);
+  /* card: meno bianco, più “vetro” */
+  --card: rgba(255, 255, 255, 0.55);
+  --card-border: rgba(17,18,20,.08);
+
+  --shadow: 0 12px 28px rgba(0,0,0,.10);
   --radius: 16px;
 }
 
@@ -175,8 +176,11 @@ h1{
 /* SFONDO SOLO EVENTO 1 */
 body.event-dan{
   background:
-    linear-gradient(rgba(245,246,248,.88), rgba(245,246,248,.88)),
-    url("/assets/modif.png");
+    linear-gradient(
+      rgba(238,240,243,.55),
+      rgba(238,240,243,.65)
+    ),
+    url("/assets/evento-dan-bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -199,6 +203,7 @@ body.event-dan{
   width: min(720px, 100%);
   padding: 18px;
   text-align: left;        /* leggibilità migliore */
+  background: rgba(255,255,255,.65);
 }
 
 .prose p{
@@ -234,5 +239,26 @@ body.event-dan{
 @media (min-width: 860px){
   .actions{
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+.prose a{
+  color: #2b5cff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose a:hover{
+  opacity: .85;
+}
+
+@media (max-width: 600px){
+  body.event-dan{
+    background-position: center top;
+  }
+
+  .prose{
+    background: rgba(255,255,255,.75);
   }
 }
