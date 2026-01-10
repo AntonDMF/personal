@@ -269,3 +269,64 @@ body.event-dan{
 .event-panel p{
   line-height: 1.55;
 }
+
+/* EVENT PAGE STACK */
+.event-page{
+  padding: 18px 14px;
+}
+
+/* niente center verticale: crea un layout naturale */
+.event-hero{
+  min-height: 100svh;              /* iOS-friendly viewport */
+  display: flex;
+  align-items: flex-start;         /* NON center */
+  justify-content: center;
+  padding-top: 18px;
+  padding-bottom: 24px;
+}
+
+/* pannello leggibile e stabile */
+.event-panel{
+  width: min(760px, 100%);
+  background: rgba(255,255,255,.86);
+  color: #111;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.22);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.event-panel h1{
+  margin: 0 0 12px 0;
+  font-size: clamp(1.55rem, 4.5vw, 2.4rem);
+  line-height: 1.08;
+}
+
+.event-panel p{
+  margin: 0 0 12px 0;
+  line-height: 1.55;
+}
+
+/* CTA sempre coerente e non enorme */
+.event-panel .cta-button{
+  margin-top: 14px;
+}
+
+/* link back pulito (non viola default) */
+.back-link{
+  display: inline-block;
+  margin-top: 14px;
+  color: rgba(17,18,20,.75);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.back-link:visited{ color: rgba(17,18,20,.75); }
+
+/* desktop: un po' più aria */
+@media (min-width: 860px){
+  .event-page{ padding: 40px 20px; }
+  .event-hero{ padding-top: 40px; }
+  .event-panel{ padding: 22px; }
+}
