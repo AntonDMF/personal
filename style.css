@@ -149,23 +149,6 @@ h1{
   grid-template-columns: 1fr;
 }
 
-.action-card{
-  padding: 18px;
-  text-decoration: none;
-  color: inherit;
-  text-align: left;
-}
-
-.action-card h2{
-  margin: 0 0 8px 0;
-  font-size: 1.15rem;
-}
-
-.action-card p{
-  margin: 0;
-  color: var(--muted);
-}
-
 /* desktop: cards affiancate e allineate */
 @media (min-width: 860px){
   .actions{
@@ -211,13 +194,6 @@ body.event-dan{
   line-height: 1.55;
 }
 
-.actions{
-  width: min(820px, 100%);
-  display: grid;
-  gap: 14px;
-  grid-template-columns: 1fr;
-}
-
 .action-card{
   padding: 18px;
   text-decoration: none;
@@ -261,4 +237,9 @@ body.event-dan{
   .prose{
     background: rgba(255,255,255,.75);
   }
+}
+
+.actions a{
+  color: inherit;
+  text-decoration: none;
 }
