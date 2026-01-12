@@ -24,6 +24,40 @@ body{
   color: var(--text);
 }
 
+/* SFONDO GLOBALE (tutte le pagine) */
+body{
+  /* desktop: sfondo fisso */
+  background:
+    linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.30)),
+    url("/assets/pitt.avif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
+/* iOS: fallback per sfondo fixed */
+@supports (-webkit-touch-callout: none){
+  body{
+    background: none;
+  }
+  body::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(rgba(0,0,0,.30), rgba(0,0,0,.30)),
+      url("/assets/pitt.avif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translateZ(0);
+  }
+}
+
+
 .container{
   max-width: 980px;
   margin: 0 auto;
@@ -156,18 +190,7 @@ h1{
   }
 }
 
-/* SFONDO SOLO EVENTO 1 */
-body.event-dan{
-  background:
-    linear-gradient(
-      rgba(238,240,243,.55),
-      rgba(238,240,243,.65)
-    ),
-    url("/assets/pitt.avif");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+
 
 
 /* HOME LAYOUT */
