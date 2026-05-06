@@ -1,1 +1,121 @@
+<!doctype html>
 
+<html lang="it">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Conferma partecipazione</title>
+
+  <link rel="stylesheet" href="rsvp.css" />
+
+</head>
+
+<body>
+
+  <main class="page">
+
+    <section class="card">
+
+      <a class="back-link" href="../">← Torna all’evento</a>
+
+      <h1>Conferma partecipazione</h1>
+
+      <p class="intro">
+
+        Compila questi dati per confermare la tua risposta.
+
+      </p>
+
+      <form id="rsvpForm" class="form">
+
+        <label>
+
+          Nome *
+
+          <input name="first_name" type="text" required />
+
+        </label>
+
+        <label>
+
+          Cognome o soprannome *
+
+          <input name="last_name_or_nickname" type="text" required />
+
+        </label>
+
+        <fieldset>
+
+          <legend>Partecipo?</legend>
+
+          <label class="radio-row">
+
+            <input type="radio" name="attendance_status" value="yes" required />
+
+            Sì
+
+          </label>
+
+          <label class="radio-row">
+
+            <input type="radio" name="attendance_status" value="no" required />
+
+            No
+
+          </label>
+
+        </fieldset>
+
+        <label>
+
+          Con quanti?
+
+          <input name="guests_count" type="number" min="0" value="0" />
+
+        </label>
+
+        <fieldset>
+
+          <legend>Hai bisogno di un NCC per il ritorno?</legend>
+
+          <label class="radio-row">
+
+            <input type="radio" name="needs_ncc_return" value="yes" required />
+
+            Sì
+
+          </label>
+
+          <label class="radio-row">
+
+            <input type="radio" name="needs_ncc_return" value="no" required />
+
+            No
+
+          </label>
+
+        </fieldset>
+
+        <button id="submitButton" type="submit">
+
+          Invia risposta
+
+        </button>
+
+        <p id="formMessage" class="form-message"></p>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="rsvp.js"></script>
+
+</body>
+
+</html>
