@@ -234,3 +234,33 @@ h1 {
   text-decoration: underline;
 
 }
+
+.admin-secret {
+
+  position: fixed;
+
+  right: 14px;
+
+  bottom: 10px;
+
+  font-size: 11px;
+
+  letter-spacing: 0.08em;
+
+  color: rgba(255,255,255,.14);
+
+  text-decoration: none;
+
+  z-index: 9999;
+
+  transition: opacity 0.2s ease,
+
+              color 0.2s ease;
+
+}
+
+.admin-secret:hover {
+
+  color: rgba(255,255,255,.38);
+
+}
