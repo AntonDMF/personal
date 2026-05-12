@@ -341,3 +341,9 @@ select {
   }
 
 }
+
+.hidden {
+
+  display: none;
+
+}
