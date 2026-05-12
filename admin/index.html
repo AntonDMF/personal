@@ -1,1 +1,149 @@
+<!doctype html>
 
+<html lang="it">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Admin RSVP</title>
+
+  <link rel="stylesheet" href="admin.css" />
+
+</head>
+
+<body>
+
+  <main class="admin-shell">
+
+    <section id="loginView" class="login-card">
+
+      <h1>Admin RSVP</h1>
+
+      <p>Accedi per leggere le risposte raccolte.</p>
+
+      <form id="loginForm">
+
+        <input name="email" type="email" placeholder="Email admin" required />
+
+        <input name="password" type="password" placeholder="Password" required />
+
+        <button type="submit">Accedi</button>
+
+      </form>
+
+      <p id="loginMessage" class="message"></p>
+
+    </section>
+
+    <section id="dashboardView" class="dashboard hidden">
+
+      <header class="dashboard-header">
+
+        <div>
+
+          <h1>Dashboard RSVP</h1>
+
+          <p>Risposte evento raccolte tramite Supabase.</p>
+
+        </div>
+
+        <button id="logoutButton" class="secondary">Logout</button>
+
+      </header>
+
+      <section class="stats">
+
+        <div class="stat-card">
+
+          <span>Risposte totali</span>
+
+          <strong id="totalRsvps">0</strong>
+
+        </div>
+
+        <div class="stat-card">
+
+          <span>Presenti stimati</span>
+
+          <strong id="totalGuests">0</strong>
+
+        </div>
+
+        <div class="stat-card">
+
+          <span>Non partecipano</span>
+
+          <strong id="totalDeclined">0</strong>
+
+        </div>
+
+        <div class="stat-card">
+
+          <span>Richieste NCC</span>
+
+          <strong id="totalNcc">0</strong>
+
+        </div>
+
+      </section>
+
+      <div class="toolbar">
+
+        <input id="searchInput" type="search" placeholder="Cerca nome, telefono, destinazione, richieste..." />
+
+        <button id="refreshButton" class="secondary">Aggiorna</button>
+
+        <button id="exportButton">Esporta CSV</button>
+
+      </div>
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Nome</th>
+
+              <th>Partecipa</th>
+
+              <th>Solo sé stesso</th>
+
+              <th>Persone</th>
+
+              <th>Richieste alimentari</th>
+
+              <th>NCC</th>
+
+              <th>Destinazione</th>
+
+              <th>Telefono</th>
+
+              <th>Data invio</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody id="rsvpTableBody"></tbody>
+
+        </table>
+
+      </div>
+
+      <p id="dashboardMessage" class="message"></p>
+
+    </section>
+
+  </main>
+
+  <script type="module" src="admin.js"></script>
+
+</body>
+
+</html>
