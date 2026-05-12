@@ -124,23 +124,73 @@
 
         </fieldset>
 
-        <label>
+        <fieldset>
 
-          In quanti sarete?
+  <legend>
 
-          <input
+    Stai registrando solo te stesso in questo form?
 
-            name="guests_count"
+  </legend>
 
-            type="number"
+  <label class="radio-row">
 
-            min="0"
+    <input
 
-            value="0"
+      type="radio"
 
-          />
+      name="registering_self_only"
 
-        </label>
+      value="yes"
+
+      required
+
+    />
+
+    Sì
+
+  </label>
+
+  <label class="radio-row">
+
+    <input
+
+      type="radio"
+
+      name="registering_self_only"
+
+      value="no"
+
+      required
+
+    />
+
+    No
+
+  </label>
+
+</fieldset>
+
+<div id="guestCountBox" class="hidden">
+
+  <label>
+
+    In quanti sarete?
+
+    <input
+
+      name="guests_count"
+
+      type="number"
+
+      min="2"
+
+      value="2"
+
+    />
+
+  </label>
+
+</div>
 
         <label>
 
