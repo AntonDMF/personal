@@ -42,6 +42,10 @@ const tableBody = document.getElementById("rsvpTableBody");
 
 const dashboardMessage = document.getElementById("dashboardMessage");
 
+const { data: sessionData } = await supabase.auth.getSession();
+
+console.log("SESSIONE ADMIN:", sessionData.session);
+
 let rsvps = [];
 
 init();
