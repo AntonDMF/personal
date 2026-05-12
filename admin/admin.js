@@ -182,17 +182,19 @@ async function loadRsvps() {
 
     .order("created_at", { ascending: false });
 
-  if (error) {
+ if (error) {
 
-    console.error(error);
+  console.error("ERRORE SUPABASE:", error);
 
-    dashboardMessage.textContent = "Errore durante la lettura dei dati. Controlla policy RLS e colonne Supabase.";
+  dashboardMessage.textContent =
 
-    dashboardMessage.className = "message error";
+    `Errore Supabase: ${error.message || "errore sconosciuto"}`;
 
-    return;
+  dashboardMessage.className = "message error";
 
-  }
+  return;
+
+}
 
   rsvps = data || [];
 
