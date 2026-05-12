@@ -186,13 +186,13 @@ async function loadRsvps() {
 
     .order("created_at", { ascending: false });
 
- if (error) {
+if (error) {
 
-  console.error("ERRORE SUPABASE:", error);
+  console.error("ERRORE SUPABASE COMPLETO:", error);
 
   dashboardMessage.textContent =
 
-    `Errore Supabase: ${error.message || "errore sconosciuto"}`;
+    `Errore Supabase: ${error.message || JSON.stringify(error)}`;
 
   dashboardMessage.className = "message error";
 
