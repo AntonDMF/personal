@@ -1,26 +1,20 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-
-/*
-
-  SOSTITUISCI QUESTI 3 VALORI
-
-*/
-
-const SUPABASE_URL = "https://TUO-PROGETTO.supabase.co";
-
-const SUPABASE_ANON_KEY = "TUA_ANON_KEY";
-
-const EVENT_SLUG = "main-event";
-
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
 const form = document.getElementById("rsvpForm");
 
 const message = document.getElementById("formMessage");
 
 const submitButton = document.getElementById("submitButton");
 
-form.addEventListener("submit", async (event) => {
+const nccDetails = document.getElementById("nccDetails");
+
+const nccRadios = document.querySelectorAll('input[name="needs_ncc_return"]');
+
+nccRadios.forEach((radio) => {
+
+  radio.addEventListener("change", handleNccChange);
+
+});
+
+form.addEventListener("submit", (event) => {
 
   event.preventDefault();
 
@@ -28,15 +22,9 @@ form.addEventListener("submit", async (event) => {
 
   message.className = "form-message";
 
-  submitButton.disabled = true;
-
-  submitButton.textContent = "Invio in corso...";
-
   const formData = new FormData(form);
 
   const payload = {
-
-    event_slug: EVENT_SLUG,
 
     first_name: String(formData.get("first_name") || "").trim(),
 
@@ -46,15 +34,21 @@ form.addEventListener("submit", async (event) => {
 
     guests_count: Number(formData.get("guests_count") || 0),
 
-    needs_ncc_return: String(formData.get("needs_ncc_return") || "")
+    food_requests: String(formData.get("food_requests") || "").trim() || null,
+
+    needs_ncc_return: String(formData.get("needs_ncc_return") || ""),
+
+    phone_country_code: String(formData.get("phone_country_code") || "").trim() || null,
+
+    phone_number: String(formData.get("phone_number") || "").trim() || null,
+
+    ncc_destination: String(formData.get("ncc_destination") || "").trim() || null
 
   };
 
   if (!payload.first_name || !payload.last_name_or_nickname) {
 
     showMessage("Inserisci nome e cognome/soprannome.", "error");
-
-    resetButton();
 
     return;
 
@@ -64,8 +58,6 @@ form.addEventListener("submit", async (event) => {
 
     showMessage("Seleziona se partecipi o no.", "error");
 
-    resetButton();
-
     return;
 
   }
@@ -74,50 +66,62 @@ form.addEventListener("submit", async (event) => {
 
     showMessage("Seleziona se hai bisogno di NCC per il ritorno.", "error");
 
-    resetButton();
-
     return;
 
   }
 
-  const { error } = await supabase
+  if (payload.needs_ncc_return === "yes") {
 
-    .from("event_rsvps")
+    if (!payload.ncc_destination) {
 
-    .insert(payload);
+      showMessage("Inserisci la destinazione per il ritorno.", "error");
 
-  if (error) {
+      return;
 
-    console.error(error);
+    }
 
-    showMessage("Errore durante l’invio. Riprova.", "error");
+    if (!payload.phone_number) {
 
-    resetButton();
+      showMessage("Inserisci un numero di telefono per essere ricontattato.", "error");
 
-    return;
+      return;
+
+    }
 
   }
 
-  form.reset();
+  console.log("Payload pronto per Supabase:", payload);
 
-  showMessage("Risposta registrata correttamente.", "success");
+  submitButton.disabled = true;
 
-  resetButton();
+  submitButton.textContent = "Risposta pronta";
+
+  showMessage("Form valido. Prossimo step: collegamento a Supabase.", "success");
 
 });
+
+function handleNccChange() {
+
+  const selected = document.querySelector('input[name="needs_ncc_return"]:checked');
+
+  if (!selected) return;
+
+  if (selected.value === "yes") {
+
+    nccDetails.classList.remove("hidden");
+
+  } else {
+
+    nccDetails.classList.add("hidden");
+
+  }
+
+}
 
 function showMessage(text, type) {
 
   message.textContent = text;
 
   message.className = `form-message ${type}`;
-
-}
-
-function resetButton() {
-
-  submitButton.disabled = false;
-
-  submitButton.textContent = "Invia risposta";
 
 }
