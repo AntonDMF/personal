@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Conferma partecipazione</title>
+  <title>Conferma per Trentony</title>
 
   <link rel="stylesheet" href="rsvp.css" />
 
@@ -34,7 +34,7 @@
 
       <h1>
 
-        Conferma
+        Conferma partecipazione
 
       </h1>
 
@@ -126,7 +126,7 @@
 
         <label>
 
-          In quanti saranno oltre a te?
+          In quanti sarete?
 
           <input
 
@@ -142,13 +142,35 @@
 
         </label>
 
+        <label>
+
+          Intolleranze alimentari o richieste particolari
+
+          <textarea
+
+            name="food_requests"
+
+            rows="4"
+
+            placeholder="Facoltativo. Es. intolleranze, allergie, esigenze alimentari o altre richieste utili."
+
+          ></textarea>
+
+        </label>
+
         <fieldset>
 
           <legend>
 
-            Se vieni accompagnato, avresti bisogno di un NCC o di un taxi per il ritorno? **vedi note sotto**
+            Se vieni accompagnato, potresti avere bisogno di un NCC o di un taxi per il ritorno?
 
           </legend>
+
+          <p class="field-note">
+
+            Vedi note sotto.
+
+          </p>
 
           <label class="radio-row">
 
@@ -187,6 +209,80 @@
           </label>
 
         </fieldset>
+
+        <div id="nccDetails" class="ncc-details hidden">
+
+          <div class="info-box">
+
+            <strong>Nota NCC</strong>
+
+            <p>
+
+              Il servizio NCC per il ritorno sarà valutato in base al numero di persone che lo richiederanno
+
+              e alle destinazioni indicate. Chi ne farà richiesta sarà avvisato quattro giorni prima
+
+              dell’evento con i dettagli disponibili. Se partirà, il servizio sarà ovviamente incluso.
+
+            </p>
+
+          </div>
+
+          <label>
+
+            Destinazione per il ritorno
+
+            <input
+
+              name="ncc_destination"
+
+              type="text"
+
+              placeholder="Es. Udine, Tarcento, Remanzacco, Cividale..."
+
+            />
+
+          </label>
+
+          <div class="phone-grid">
+
+            <label>
+
+              Prefisso
+
+              <select name="phone_country_code">
+
+                <option value="+39" selected>🇮🇹 +39 Italia</option>
+
+                <option value="+1">🇺🇸 +1 USA</option>
+
+                <option value="+386">🇸🇮 +386 Slovenia</option>
+
+                <option value="+34">🇪🇸 +34 Spagna</option>
+
+              </select>
+
+            </label>
+
+            <label>
+
+              Numero di telefono
+
+              <input
+
+                name="phone_number"
+
+                type="tel"
+
+                placeholder="Numero per essere ricontattato"
+
+              />
+
+            </label>
+
+          </div>
+
+        </div>
 
         <button id="submitButton" type="submit">
 
