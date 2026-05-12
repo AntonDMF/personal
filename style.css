@@ -218,3 +218,19 @@ h1 {
   backdrop-filter: blur(10px);
 
 }
+
+.calendar-link {
+
+  color: inherit;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+}
+
+.calendar-link:hover {
+
+  text-decoration: underline;
+
+}
