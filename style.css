@@ -72,15 +72,15 @@ body {
 
 h1 {
 
-  margin: 0;
+  margin: 0 0 22px;
 
-  font-size: clamp(34px, 6vw, 64px);
+  font-size: clamp(36px, 5vw, 72px) !important;
 
   line-height: 1;
 
-  font-weight: 800;
+  font-weight: 900;
 
-  letter-spacing: .02em;
+  letter-spacing: -0.035em;
 
   text-transform: uppercase;
 
@@ -429,13 +429,24 @@ h1 {
 
 .date {
 
-  margin: 34px 0 0;
+  margin: 22px 0 0;
 
-  font-size: clamp(20px, 3vw, 38px);
+  font-size: clamp(18px, 2.6vw, 34px) !important;
 
-  font-weight: 600;
-  line-height: 1.15;
-  color: rgba(255,255,255,.76);
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: rgba(255,255,255,.78);
+
+}
+
+.date,
+.date a {
+
+  font-size: clamp(18px, 2.6vw, 34px) !important;
+
+  text-decoration: none !important;
 
 }
 
